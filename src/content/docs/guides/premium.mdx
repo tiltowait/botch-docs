@@ -1,0 +1,75 @@
+---
+title: Premium Features
+description: A guide to Botch's premium features.
+banner:
+  content: |
+    These features require an active <a href="https://patreon.com/tiltowait" title="Become a patron">Patreon subscription</a>
+---
+
+import { Aside, LinkCard } from '@astrojs/starlight/components';
+import { Picture } from 'astro:assets';
+
+<LinkCard
+  title="Become a patron"
+  href="https://patreon.com/tiltowait"
+  description="Join for as little as $3/mo!"
+/>
+
+## Character images
+
+As a supporter, you can upload images to [your characters](/guides/character-creation). Just as there is no limit to the number of characters you can save, there is no limit to the number of images you can upload.
+
+### Upload
+
+```
+/character image upload
+```
+
+Select the image you want to upload by tapping the icon or dragging the file into the text box.
+
+<Picture
+  src="/src/assets/premium/image-upload.webp"
+  alt="Upload an image for your character"
+  width="450"
+  height="542"
+/>
+
+**Supported formats:**
+
+* PNG
+* WebP
+* JPEG
+
+### View
+
+```
+/character images
+```
+
+Click the buttons to page between images.
+
+<Picture
+  src="/src/assets/premium/image-view.webp"
+  alt="View your or other players' images with /character images"
+  width="450"
+  height="542"
+/>
+
+<Aside type="tip">
+You can view other players' images with the optional `owner` parameter. Tired of other players messing up your selection? Hide the controls with the `controls` parameter.
+</Aside>
+
+### Manage
+
+When viewing your own images, you may click the *Manage* button to enter management mode. From here, you can promote/demote images to move them to the beginning/end of your list. To delete an image, click the *Delete* button.
+
+<Picture
+  src="/src/assets/premium/image-manage.webp"
+  alt="Manage your images through /character images"
+  width="450"
+  height="542"
+/>
+
+## Dropping premium
+
+Should your premium membership lapse, you will retain all premium features for the current billing period. Any uploaded images will remain for a month longer, after which point they will be automatically deleted.
