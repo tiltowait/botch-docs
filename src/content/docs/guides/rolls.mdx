@@ -1,0 +1,123 @@
+---
+title: Rolls
+description: A guide to rolling with character Traits.
+---
+
+import { Aside, Code, Tabs, TabItem } from '@astrojs/starlight/components';
+import { Picture } from 'astro:assets';
+
+import ambiguousTrait from '@assets/rolls/ambiguous.png';
+
+import botchRollBasic from '@assets/rolls/botch-roll-basic.png';
+import botchRollSpecs from '@assets/rolls/botch-roll-specs.png';
+import botchRollWillpower from '@assets/rolls/botch-roll-wp.png';
+
+import beatRollBasic from '@assets/rolls/beat-roll-basic.png';
+import beatRollSpecs from '@assets/rolls/beat-roll-specs.png';
+import beatRollWillpower from '@assets/rolls/beat-roll-wp.png';
+
+export const imgWidth = 300;
+export const rollHighlights = ['Foo+Bar', '6', 'Dexterity+Brawl.Grappling'];
+
+The guides until now have led you through [character creation](/guides/character-creation), [character adjustment](/guides/character-management), and [Trait + Specialty management](/guides/traits). Now is the time to see how that all comes together. Most dice bots have no concept of what your characters have. To use them, you have to remember (or look up) your characters' Traits and enter a raw number. While **Botch** and **Beat** allow that same kind of use, they also allow you to invoke your Traits and Specialties directly.
+
+<Aside type="tip">**Botch** and **Beat** behave differently here! Be sure to click the tab for the bot you use.</Aside>
+
+## Basics
+
+The `/roll` command has a `pool` parameter where you enter your dice pool. This can be a number or, optimally, an Attribute + Ability/Skill equation.
+
+<Tabs syncKey="bot">
+  <TabItem label="Botch (WoD)">
+    <Code code="/roll pool:Foo+Bar difficulty:6" mark={rollHighlights} />
+
+    This will roll the sum of your character's *Foo* and *Bar* Traits, at Difficulty 6. **Botch** counts the number of successes, subtracts 1s, and presents you with a total. At the bottom of the output, it shows you the Traits that went into the roll, making it easier for you, other players, and Storytellers to see what the roll was about. As a bonus, you don't need to look up your Traits! [Botch tracks it all for you.](/guides/traits)
+
+  <Picture src={botchRollBasic} width={imgWidth} alt="Botch: Basic roll" />
+  </TabItem>
+  <TabItem label="Beat (CofD)">
+    <Code code="/roll pool:Foo+Bar" mark={rollHighlights} />
+
+    With this command, **Beat** will roll your *Foo* and *Bar* traits. Any 10s rolled will automatically explode.
+
+  <Picture src={beatRollBasic} width={imgWidth} alt="Beat: Basic roll" />
+
+  <Aside>
+    Explosions are represented by a number enclosed in brackets. In the screenshot above, you can see we had two explosions.
+  </Aside>
+
+  </TabItem>
+</Tabs>
+
+<Aside type="tip">
+  Traits are case-insensitive. The bot accepts `Foo`, `foo`, `FOO`, `FoO`, etc. You can also put spaces between the traits and the plus sign (e.g. `Foo + Bar`). Finally, you can subtract Traits or even raw numbers (e.g. `Foo+Bar-2`).
+</Aside>
+
+## Willpower
+
+<Tabs syncKey="bot">
+  <TabItem label="Botch (WoD)">
+    Adding the special Trait, `WP`, adds Willpower to your roll, granting an un-cancelable success and deducting a point of temporary Willpower from your total.
+
+  <Picture src={botchRollWillpower} width={imgWidth} alt="Botch: Willpower roll" />
+    <Aside>**Botch** will *not* prevent you from using Willpower if you are empty. This is a design decision to accommodate games with certain house rules.</Aside>
+  </TabItem>
+  <TabItem label="Beat (CofD)">
+    Adding the special Trait, `WP`, adds Willpower to your roll, granting three bonus dice and deducting a point of temporary Willpower from your total.
+
+  <Picture src={botchRollWillpower} width={imgWidth} alt="Beat: Willpower roll" />
+    <Aside>**Beat** will *not* prevent you from using Willpower if you are empty. This is a design decision to accommodate games with certain house rules.</Aside>
+  </TabItem>
+</Tabs>
+
+
+## Specialties
+
+To invoke your Specialties, use dot-notation.
+
+<Tabs syncKey="bot">
+  <TabItem label="Botch (WoD)">
+    <Code code="/roll pool:Dexterity+Brawl.Grappling difficulty:6" mark={rollHighlights} />
+
+    As expected, this rolls *Strength*, with Specialty *Vicious*, plus *Brawl* at Difficulty 6. Any 10s rolled will count for double successes.
+
+  <Picture src={botchRollSpecs} width={imgWidth} alt="Botch: Roll with Specialties" />
+  </TabItem>
+  <TabItem label="Beat (CofD)">
+    <Code code="/roll pool:Dexterity+Brawl.Grappling" mark={rollHighlights} />
+
+    In this example, we roll *Strength* plus *Brawl*, with a Specialty in *Grappling*. Because we added a Specialty, **Beat** rolls one bonus die.
+
+  <Picture src={beatRollSpecs} width={imgWidth} alt="Beat: Roll with Specialties" />
+  </TabItem>
+</Tabs>
+
+## Shortcuts
+
+Let's face it: typing out `Dexterity+Brawl.Grappling` is tedious. It looks nice but isn't much of a time-saver, especially if you're on mobile. Luckily, you will rarely need to type the full names of your Traits or Specialties. Instead, you can give an abbreviation, and so long as the bot can unambiguously match that to a trait, it will figure out what you want.
+
+Here are some examples:
+
+| Abbreviation | Expands to ... |
+|--------------|----------------|
+| stren        | Strength       |
+| inte         | Intelligence   |
+| b            | Brawl          |
+
+Again, these are just examples! You aren't limited to these exact abbreviations. You could just as easily write *intel* for Intelligence. **The only requirement is that the abbreviation is unambiguous.**
+
+What does that mean? Say you write `str`. That can expand to two different Core Traits: Strength or Streetwise. You can't give `stre`, either, because it still matches either of those Traits. Thus, you have to either write (minimally) `stren` for Strength or `stree` for Streetwise.
+
+<Picture src={ambiguousTrait} width={imgWidth} alt="Ambiguous traits cannot be rolled" />
+
+<Aside>
+  Shortcuts work with Custom Traits as well, which means that your own shortcuts might be different than the examples above. For instance, if you have a Custom Trait called "Barter", then a simple *b* will no longer auto-expand to Brawl.
+</Aside>
+
+### Specialty shortcuts
+
+Shortcuts really take off with Specialties. Using our `Brawl.Grappling` example from before, we could write `b.g` instead. Only, we don't even need to type that much. What if we only have a single Brawl specialty? We could write `b.`: Since `b` expands to Brawl, telling the bot we want to use a Specialty (which the `.` does) means it will auto-expand to the only Specialty available. (Of course, if you have multiple Brawl Specialties, the rules about ambiguity apply, as normal.)
+
+It goes the other way. If we only have one Specialty called Grappling, then we could type `.Grappling` and leave out Brawl altogether. If we only have one Specialty that starts with the letter *G*, then we could just type `.g`.
+
+And if we only have a single Specialty across all our Traits? Then all we need to do is type a `.` by itself. The bot will figure it out.
