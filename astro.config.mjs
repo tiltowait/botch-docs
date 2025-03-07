@@ -21,6 +21,7 @@ export default defineConfig({
 						{ label: 'Getting Started', slug: 'guides/get-started' },
 						{ label: 'Character Creation', slug: 'guides/character-creation' },
 						{ label: 'Character Management', slug: 'guides/character-management' },
+						{ label: 'Traits & Specialties', slug: 'guides/traits' },
 						{ label: 'Rolls', slug: 'guides/rolls' },
 						{ label: 'Premium Features', slug: 'guides/premium' },
 					],

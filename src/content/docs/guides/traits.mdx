@@ -1,0 +1,77 @@
+---
+title: Traits & Specialties
+description: A guide to traits and specialties.
+---
+
+import { Picture } from 'astro:assets';
+import BotAside from '@components/BotAside.astro';
+
+import imgTraitAssign from '@assets/traits/traits-assign.webp';
+import imgTraitRemove from '@assets/traits/traits-remove.webp';
+import imgTraitView from '@assets/traits/traits-list.webp';
+import imgSpecAssign from '@assets/traits/specialties-assign.webp';
+import imgSpecRemove from '@assets/traits/specialties-remove.webp';
+
+<BotAside />
+
+## Traits
+
+*Traits* are your characters' Attributes and Abilities (WoD) or Skills (CofD). If you use it to construct a dice pool, it is almost always a Trait. In addition to your core Attributes, Abilities, and Skills, you can create Custom Traits not found on the standard character sheet. These Traits can then be used in [rolls](/guides/rolls).
+
+### Assign
+
+```
+/traits assign traits:Foo=1; Bar=2; Baz=3
+```
+
+Use this command to assign one or more Traits to a character. It follows the pattern, `NAME=VALUE`. To assign more than one, separate them with semicolons (`;`). Trait names can contain spaces but not numbers.
+
+<Picture src={imgTraitAssign} width="450" alt="/traits assign" />
+
+### View
+
+```
+/traits list
+```
+
+View all of a character's Traits. If any [Specialties](#specialties) are assigned, they are displayed as well.
+
+<Picture src={imgTraitView} width="450" alt="/traits list" />
+
+### Remove
+
+```
+/traits remove traits:Foo; Bar; Baz
+```
+
+Delete one or more Traits from a character. As with [`/traits assign`](#assign), separate multiple Traits with semicolons (`;`).
+
+<Picture src={imgTraitRemove} width="450" alt="/traits remove" />
+
+## Specialties
+
+Specialties are areas of expertise characters have in some of their [Traits](#traits). **Botch** allows Specialties on Attributes, Abilities, and Custom Traits. Per the ***Chronicles of Darkness*** rules, **Beat** allows them on Skills and Custom Traits only. Like Traits, Specialties can be used in [rolls](/guides/rolls).
+
+### Assign
+
+```
+/specialties assign specialties:Foo=Spec,Another Spec; Bar=Yet Another Spec
+```
+
+Specialty assignment follows the form, `TRAIT=SPEC`. Specialty names can contain spaces, but not numbers. You may assign two or more Specialties at a time by separating them with commas (`,`). You may assign Specialties to multiple Traits by separating them with semicolons (`;`). Contrary to game rules as written, there are no limits to the number of specialties you can assign to a trait.
+
+<Picture src={imgSpecAssign} width="450" alt="/specialties assign" />
+
+### View
+
+See [`/traits list`](#view).
+
+### Remove
+
+```
+/specialties remove specialties:Foo=Spec,Another Spec; Bar=Yet Another Spec
+```
+
+Specialty removal follows the form, `TRAIT=SPEC`. As with [`/specialties assign`](#assign-1), you may remove two or more Specialties at once by separating them with commas (`,`). You may remove Specialties from multiple Traits by separating them with semicolons (`;`).
+
+<Picture src={imgSpecRemove} width="450" alt="/specialties remove" />
