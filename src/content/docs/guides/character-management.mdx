@@ -1,0 +1,45 @@
+---
+title: Character Management
+description: A guide to managing your characters.
+---
+
+import { Picture } from 'astro:assets';
+import BotAside from '@components/BotAside.astro';
+
+import imgDisplay from '@assets/manage/display.webp';
+import imgAdjust from '@assets/manage/adjust.webp';
+import imgDelete from '@assets/manage/delete.webp';
+
+<BotAside />
+
+**Botch** and **Beat** offer several commands to view and manage your characters. This guide is for standard adjustments, such as HP, WP, and Path rating. [To adjust traits and specialties instead, click here.](/guides/traits)
+
+## View
+
+```
+/character display
+```
+
+Display one of your characters. Includes name, Health, Willpower, Path + rating, and any special traits associated with your character's template (e.g. Generation for Vampires).
+
+<Picture src={imgDisplay} width="450" alt="/character display" />
+
+## Adjust
+
+```
+/character adjust
+```
+
+This command displays your character as in `/character display` alongside a menu (visible only to you) to adjust various parameters. All characters can have their Health, Willpower, and Path rating adjusted. Additional options are available depending on template (e.g. Sekhem for Mummies).
+
+<Picture src={imgAdjust} width="450" alt="/character adjust" />
+
+## Delete
+
+```
+/character delete
+```
+
+Delete one of your characters. After selecting the character to delete, you must type the character name a second time to confirm. **Be careful: This action cannot be undone!**
+
+<Picture src={imgDelete} width="450" alt="/character delete" />
