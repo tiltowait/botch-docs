@@ -1,0 +1,52 @@
+---
+title: "Reference: Specialties"
+slug: 'reference/specialties'
+description: "Specialties command reference."
+banner:
+  content: |
+    <a href="/guides/traits" title="Traits &amp; Specialties Guide">Click here to view the Traits & Specialties guide.</a>
+---
+
+import { Aside } from '@astrojs/starlight/components';
+import RefBoilerplate from '@components/RefBoilerplate.astro';
+
+<RefBoilerplate command="traits" />
+
+## About Specialties
+
+Specialties represent expertise in certain [Traits](/reference/traits). When used in [rolls](/guides/rolls), they apply a bonus depending on the system:
+
+* **World of Darkness:** Rolled 10s grant two successes each
+* **Chronicles of Darkness:** Add one bonus die.
+
+### `/specialties assign`
+
+This command assigns Specialties to one or more Traits. If the Trait doesn't exist, the bot will throw an error.
+
+| Parameter        | Description                                               |
+|------------------|-----------------------------------------------------------|
+| **specialties**  | The Specialties to assign.                                |
+| *character*      | The character receiving the Specialties.                  |
+
+#### The assignment syntax
+
+Specialties are assigned with a syntax of `Trait=Specialty`. You can assign multiple Specialties at a time by separating them with commas (`,`): `Foo=Bar,Baz`, and so on. You can assign Specialties to multiple Traits in a single invocation by separating each Trait/Specialty clause with a semicolon (`;`): `Foo=Bar; Baz=Qux`.
+
+Specialty names can contain spaces and underscores.
+
+### Viewing Specialties
+
+See [`/traits list`](/reference/traits#traits-list).
+
+### `/specialties remove`
+
+Remove Specialties from a character.
+
+| Parameter        | Description                                               |
+|------------------|-----------------------------------------------------------|
+| **specialties**  | The Specialties to remove.                                |
+| *character*      | The character losing the Specialties.                     |
+
+### The removal syntax
+
+See [assignment syntax](#the-assignment-syntax).
