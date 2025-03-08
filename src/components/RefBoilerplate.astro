@@ -1,0 +1,5 @@
+---
+const { command, botsDiffer } = Astro.props;
+---
+
+<p>This page contains a full list of <code>/{command}</code> commands and descriptions of all options. Required parameters are <strong>bold</strong> and optional are <em>italic</em>. {botsDiffer && <span>In some cases, <strong>Botch</strong> and <strong>Beat</strong> differ in options presented. Where that occurs, click the bot you wish to see.</span>}</p>

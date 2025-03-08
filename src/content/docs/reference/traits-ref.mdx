@@ -1,0 +1,53 @@
+---
+title: "Reference: Traits"
+slug: 'reference/traits'
+description: "Trait command reference."
+banner:
+  content: |
+    <a href="/guides/traits" title="Traits &amp; Specialties Guide">Click here to view the Traits & Specialties guide.</a>
+---
+
+import { Aside } from '@astrojs/starlight/components';
+import RefBoilerplate from '@components/RefBoilerplate.astro';
+
+<RefBoilerplate command="traits" />
+
+## About Traits
+
+Traits are Attributes, Abilities, Skills, etc.—the things from which you construct 99% of your dice pools. Each [character](/guides/character-creation) has a number of predefined, or "Core", Traits. (Exactly what these Core Traits are defends on the system, but every character has, at a minimum, Attributes and Abilities/Skills.) In addition, both **Botch** and **Beat** allow you to supplement these Core Traits with Custom Traits. [Traits can be used in rolls.](/guides/rolls)
+
+### `/traits assign`
+
+This command assigns Traits and associated ratings ("dots") to a character. If the Trait doesn't exist, it will be created; otherwise, its value will simply be updated.
+
+| Parameter   | Description                                               |
+|-------------|-----------------------------------------------------------|
+| **traits**  | The Traits to assign.                                     |
+| *character* | The character receiving the Traits.                       |
+
+#### The assignment syntax
+
+Traits are assigned with a syntax of `Trait=Rating`. You can assign multiple Traits at a time by separating them with semicolons (`;`): `Foo=2; Bar=4; Baz=1`, and so on.
+
+Trait names can contain spaces and underscores.
+
+### `/traits list`
+
+View a list of all Traits and [Specialties](/reference/specialties) assigned to a character.
+
+| Parameter   | Description                                               |
+|-------------|-----------------------------------------------------------|
+| *character* | The character to view.                                    |
+
+### `/traits remove`
+
+Remove Traits from a character. Core Traits are reset to 0 rather than removed completely.
+
+| Parameter   | Description                                               |
+|-------------|-----------------------------------------------------------|
+| **traits**  | The Traits to remove.                                     |
+| *character* | The character losing the Traits.                          |
+
+### The removal syntax
+
+Separate Trait names with semicolons (`;`). Example: `Foo; Bar; Baz`.
