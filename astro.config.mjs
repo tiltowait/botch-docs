@@ -23,6 +23,7 @@ export default defineConfig({
 						{ label: 'Character Management', slug: 'guides/character-management' },
 						{ label: 'Traits & Specialties', slug: 'guides/traits' },
 						{ label: 'Rolls', slug: 'guides/rolls' },
+						{ label: 'Macros', slug: 'guides/macros' },
 						{ label: 'Premium Features', slug: 'guides/premium' },
 					],
 				},

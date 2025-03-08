@@ -1,0 +1,92 @@
+---
+title: Macros
+description: Guide to creating and using macros.
+banner:
+  content: The examples on this page show required parameters only. See full documentation.
+---
+
+import { Picture } from 'astro:assets';
+import { Aside, Code, Tabs, TabItem } from '@astrojs/starlight/components';
+
+export const macroHighlights = ['hunt', 'Strength+Brawl.Biting', '6']
+export const imgWidth = 300;
+
+import botchMacroCreate from '@assets/macros/botch-macro-create.png';
+import botchMroll from '@assets/macros/botch-mroll.png';
+import botchMacroList from '@assets/macros/botch-macro-list.png';
+import botchMacroDelete from '@assets/macros/botch-macro-delete.png';
+
+import beatMacroCreate from '@assets/macros/beat-macro-create.png';
+import beatMroll from '@assets/macros/beat-mroll.png';
+import beatMacroList from '@assets/macros/beat-macro-list.png';
+import beatMacroDelete from '@assets/macros/beat-macro-delete.png';
+
+<Aside type="tip">**Botch** and **Beat** behave differently here! Be sure to click the tab for the bot you use.</Aside>
+
+Macros allow you to perform common [rolls](/guides/rolls) more quickly. For example, if you often roll `Strength + Brawl.Biting` for your Vampire's hunts, you can create a macro called *hunt* that makes that same roll. Combined with roll comments, you can save a lot of typing!
+
+## Create
+
+<Tabs syncKey="bot">
+  <TabItem label="Botch (WoD)">
+    <Code code="/macro create name:hunt pool:Strength+Brawl.Biting difficulty:6" mark={macroHighlights} />
+
+    The above command will create a macro called `hunt`, with a pool using `Strength` and `Brawl`, plus a `Biting` specialty, at Difficulty 6.
+  <Picture src={botchMacroCreate} width={imgWidth} alt="Botch: /macro create" />
+  </TabItem>
+  <TabItem label="Beat (CofD)">
+    <Code code="/macro create name:hunt pool:Strength+Brawl.Biting" mark={macroHighlights} />
+
+    The above command will create a macro called `hunt`, with a pool using `Strength` and `Brawl`, plus a `Biting` specialty.
+  <Picture src={beatMacroCreate} width={imgWidth} alt="Beat: /macro create" />
+  </TabItem>
+</Tabs>
+
+<Aside type="tip">
+  You can use [Shortcuts](/guides/rolls#shortcuts) in your macro pools. They will be expanded at macro creation, so there's no chance of ambiguity if you later assign some [Custom Traits](/guides/traits#assign).
+</Aside>
+
+## Use
+
+<Tabs syncKey="bot">
+  <TabItem label="Botch (WoD)">
+    <Code code="/mroll name:hunt" mark={macroHighlights} />
+    <Picture src={botchMroll} width={imgWidth} alt="Botch: /mroll" />
+  </TabItem>
+  <TabItem label="Beat (CofD)">
+    <Code code="/macro name:hunt" mark={macroHighlights} />
+    <Picture src={beatMroll} width={imgWidth} alt="Beat: /mroll" />
+  </TabItem>
+</Tabs>
+
+<Aside type="tip">
+  You can use Willpower in your macro with the `use_wp` option.
+</Aside>
+
+## View
+
+<Tabs syncKey="bot">
+  <TabItem label="Botch (WoD)">
+    <Code code="/macro list" mark={macroHighlights} />
+    Shows a paginated list of your macros.
+    <Picture src={botchMacroList} width={imgWidth} alt="Botch: /macro list" />
+  </TabItem>
+  <TabItem label="Beat (CofD)">
+    <Code code="/macro list" mark={macroHighlights} />
+    Shows a paginated list of your macros.
+    <Picture src={beatMacroList} width={imgWidth} alt="Beat: /macro list" />
+  </TabItem>
+</Tabs>
+
+## Delete
+
+<Tabs syncKey="bot">
+  <TabItem label="Botch (WoD)">
+    <Code code="/macro delete macro_name:hunt" mark={macroHighlights} />
+    <Picture src={botchMacroList} width={imgWidth} alt="Botch: /macro delete" />
+  </TabItem>
+  <TabItem label="Beat (CofD)">
+    <Code code="/macro delete macro_name:hunt" mark={macroHighlights} />
+    <Picture src={beatMacroList} width={imgWidth} alt="Beat: /macro delete" />
+  </TabItem>
+</Tabs>
