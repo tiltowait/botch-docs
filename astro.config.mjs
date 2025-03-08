@@ -18,7 +18,7 @@ export default defineConfig({
 					label: 'Guides',
 					items: [
 						// Each item here is one entry in the navigation menu.
-						{ label: 'Getting Started', slug: 'guides/get-started' },
+						{ label: 'Getting Started', slug: 'guides/getting-started' },
 						{ label: 'Character Creation', slug: 'guides/character-creation' },
 						{ label: 'Character Management', slug: 'guides/character-management' },
 						{ label: 'Traits & Specialties', slug: 'guides/traits' },
