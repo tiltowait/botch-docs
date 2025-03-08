@@ -8,8 +8,9 @@ banner:
 ---
 
 import { Aside, Tabs, TabItem } from '@astrojs/starlight/components';
+import RefBoilerplate from '@components/RefBoilerplate.astro';
 
-This page contains a full list of `/macro` commands and descriptions of all options. Required parameters are **bold** and optional are *italic*. In some cases, **Botch** and **Beat** differ in options presented. Where that occurs, click the bot you wish to see.
+<RefBoilerplate command="macro" botsDiffer={true} />
 
 ## About macros
 
