@@ -1,0 +1,101 @@
+---
+title: "Reference: Macros"
+slug: reference/macros
+description: Macro commands reference.
+banner:
+  content: |
+    <a href="/guides/macros" title="Macro Guide">Click here to view the macro guide.</a>
+---
+
+import { Aside, Tabs, TabItem } from '@astrojs/starlight/components';
+
+This page contains a full list of `/macro` commands and descriptions of all options. Required parameters are **bold** and optional are *italic*. In some cases, **Botch** and **Beat** differ in options presented. Where that occurs, click the bot you wish to see.
+
+## About macros
+
+Macros allow you to quickly perform common [rolls](/guides/rolls). For instance, you might have a "hunt" roll for your Vampire that automatically rolls the appropriate dice pool, at the correct Difficulty, and adds a comment to the roll explaining what's happening. They can save a lot of typing!
+
+### `/macro create`
+
+Creates a macro.
+
+
+<Tabs syncKey="bot">
+  <TabItem label="Botch (WoD)">
+
+  | Parameter       | Description                                         |
+  |-----------------|-----------------------------------------------------|
+  | **name**        | The macro's name. Must be unique per character.     |
+  | **pool**        | The dice pool. Can be Ability+Attribute or numbers. |
+  | **difficulty**  | The default Difficulty at which to roll.            |
+  | *comment*       | A comment to use when rolled.                       |
+  | *character*     | The character receiving the macro.                  |
+
+  </TabItem>
+  <TabItem label="Beat (CofD)">
+
+  | Parameter   | Description                                         |
+  |-------------|-----------------------------------------------------|
+  | **name**    | The macro's name. Must be unique per character.     |
+  | **pool**    | The dice pool. Can be Ability+Attribute or numbers. |
+  | *again*     | The number at which dice will explode.              |
+  | *rote*      | Whether to apply the Rote quality.                  |
+  | *comment*   | A comment to use when rolled.                       |
+  | *character* | The character receiving the macro.                  |
+
+  </TabItem>
+</Tabs>
+
+### `/mroll`
+
+Roll a macro. The optional parameters for `/mroll` allow you to override the macro's stored values, except for the pool. These overrides are one-time only.
+
+<Tabs syncKey="bot">
+  <TabItem label="Botch (WoD)">
+
+  | Parameter    | Description                                       |
+  |--------------|---------------------------------------------------|
+  | **name**     | The name of the macro to roll.                    |
+  | *difficulty* | Override the macro's Difficulty (this roll only). |
+  | *use_wp*     | Use Willpower (this roll only).                   |
+  | *comment*    | Override the roll comment (this roll only).       |
+  | *character*  | The character who owns the macro.                 |
+  
+  </TabItem>
+  <TabItem label="Beat (CofD)">
+
+  | Parameter   | Description                                               |
+  |-------------|-----------------------------------------------------------|
+  | **name**    | The name of the macro to roll.                            |
+  | *again*     | Change the number at which dice explode (this roll only). |
+  | *rote*      | Apply the Rote quality (this roll only).                  |
+  | *use_wp*    | Use Willpower (this roll only).                           |
+  | *comment*   | Override the roll comment (this roll only).               |
+  | *character* | The character who owns the macro.                         |
+
+  </TabItem>
+</Tabs>
+
+### `/macro list`
+
+Shows a paginated list of your character's macros, in alphabetical order.
+
+| Parameter   | Description                                         |
+|-------------|-----------------------------------------------------|
+| *character* | The character receiving the macro.                  |
+
+<Aside>
+  Strictly speaking, you never need to use this command's optional parameter, but it is shown here for the sake of completeness.
+</Aside>
+
+### `/macro delete`
+
+Delete a macro.
+
+| Parameter   | Description                                         |
+|-------------|-----------------------------------------------------|
+| *character* | The character from which to delete.                 |
+
+<Aside>
+  Strictly speaking, you never need to use this command's optional parameter, but it is shown here for the sake of completeness.
+</Aside>

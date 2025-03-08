@@ -27,11 +27,11 @@ export default defineConfig({
 						{ label: 'Premium Features', slug: 'guides/premium' },
 					],
 				},
+				{
+					label: 'Reference',
+					autogenerate: { directory: 'reference' },
+				},
 				{ label: 'Privacy Policy', slug: 'privacy-policy' },
-				// {
-				// 	label: 'Reference',
-				// 	autogenerate: { directory: 'reference' },
-				// },
 			],
 		}),
 	],
