@@ -1,0 +1,25 @@
+---
+import { CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+export const botchDesc = `
+	For <strong>World of Darkness</strong> chronicles.
+  <ul>
+  	<li>Mortals</li>
+  	<li>Ghouls</li>
+  	<li>Vampires</li>
+  </ul>
+`;
+export const beatDesc = `
+	For <strong>Chronicles of Darkness</strong> games.
+  <ul>
+  	<li>Mortals</li>
+  	<li>Ghouls</li>
+  	<li>Vampires</li>
+  </ul>
+`;
+---
+
+<CardGrid>
+	<LinkCard title="Botch" description={botchDesc} />
+	<LinkCard title="Beat" description={beatDesc} />
+</CardGrid>
