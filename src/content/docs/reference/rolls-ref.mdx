@@ -1,0 +1,71 @@
+---
+title: "Reference: Rolls"
+description: Roll command reference.
+slug: reference/rolls
+banner:
+  content: |
+    <a href="/guides/rolls" title="Rolls Guide">Click here to view the rolls guide.</a>
+---
+
+import { Aside, LinkButton, Tabs, TabItem } from '@astrojs/starlight/components';
+import RefBoilerplate from '@components/RefBoilerplate.astro';
+
+<RefBoilerplate command="roll" botsDiffer={true} />
+
+## About rolls
+
+Even more than [character management](/guides/character-creation), rolls are the primary purpose behind **Botch** and **Beat**. When you make a [roll](/guide/rolls), you can use your characters' [Traits and Specialties](/guides/traits) or simply use raw numbers. In other words, you don't *need* a character to use the bot, though you will be missing out on its best functionality.
+
+### `/roll`
+
+The most important command, this is what you will use 90% of the time you invoke the bot.
+
+<Aside type="tip">
+  To roll a [macro](/guides/macros), see [`/mroll`](/reference/macros#mroll).
+</Aside>
+
+<Tabs syncKey="bot">
+  <TabItem label="Botch (WoD)">
+
+  | Parameter      | Description                                                                   |
+  |----------------|-------------------------------------------------------------------------------|
+  | **pool**       | The dice pool to use. Can be a number or a Attribute+Ability equation.        |
+  | **difficulty** | The target number that defines a success. Allowed: 2-10.                      |
+  | *use_wp*       | Whether to use Willpower in the roll. You can add `+WP` to your pool instead. |
+  | *specialty*    | A Specialty to apply to the roll. See below for more details.                 |
+  | *comment*      | Text to appear alongside the roll. Typically used to describe an action.      |
+  | *character*    | The character performing the roll.                                            |
+  | *owner*        | Admins only: Roll on behalf of a player.                                      |
+
+  </TabItem>
+  <TabItem label="Beat (CofD)">
+
+  | Parameter   | Description                                                                   |
+  |-------------|-------------------------------------------------------------------------------|
+  | **pool**    | The dice pool to use. Can be a number or a Attribute+Skill equation.          |
+  | *use_wp*    | Whether to use Willpower in the roll. You can add `+WP` to your pool instead. |
+  | *again*     | The target number for explosions. Allowed: 8-10. Default: 10.                 |
+  | *rote*      | Apply the Rote quality (re-roll failures once).                               |
+  | *specialty* | A Specialty to apply to the roll. See below for more details.                 |
+  | *comment*   | Text to appear alongside the roll. Typically used to describe an action.      |
+  | *character* | The character performing the roll.                                            |
+  | *owner*     | Admins only: Roll on behalf of a player.                                      |
+
+  </TabItem>
+</Tabs>
+
+<Aside>
+  The `specialty` option is primarily intended for making rolls without a character. When using a character, it is best to use the `Trait.Specialty` syntax (below).
+</Aside>
+
+#### The `pool` syntax
+
+**Recommended reading:** <LinkButton href="/guides/rolls">Rolls Guide</LinkButton>
+
+A roll's `pool` can be a number ("2"), an equation of numbers ("2+3-1") (plus/minus only), or an equation of [Traits and Specialties](/guides/traits). Traits and Specialties require a [character](/guides/character-creation) to use.
+
+To roll with Traits, simply type their names in the `pool`, e.g. "Strength+Brawl". [Specialties](/reference/specialties) are specified with dot-syntax (`.`): "Strength+Brawl.Grappling".
+
+<Aside type="tip">
+  You don't have to type full Trait names! [Read about Shortcuts here.](/guides/rolls#shortcuts)
+</Aside>
