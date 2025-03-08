@@ -1,0 +1,38 @@
+---
+title: "Reference: Optional Parameters"
+slug: reference/optional-parameters
+description: Optional parameters reference.
+---
+
+import { Picture } from 'astro:assets';
+import { Aside } from '@astrojs/starlight/components';
+
+import optionsHidden from '@assets/reference/options-hidden.png';
+import optionsExpanded from '@assets/reference/options-expanded.png';
+import charSelect from '@assets/reference/character-selector.png';
+
+Many commands make use of optional parameters. These are parameters that don't appear in the main command palette and are only accessed by hitting tab or clicking the *+N more* text.
+
+**Optional parameters hidden (default):**
+
+<Picture src={optionsHidden} alt="Optional parameters are hidden by default" />
+
+**After tabbing or clicking "more":**
+
+<Picture src={optionsExpanded} alt="Tabbing or clicking 'more' shows optional parameters" />
+
+Optional parameters are simply that: optional. If you don't supply them, the default value will be used, which varies on an option-by-option basis.
+
+## The `character` option
+
+Many commands have an optional `character` parameter. **It is still optional, even if you have more than one character!** If more than one character can execute a command, **Botch** and **Beat** will present a menu from which you can select the character to use. Simply click one, and you're off to the races.
+
+<Picture src={charSelect} alt="The character selector means you don't have to use the character option" />
+
+<Aside type="tip">
+  If you have multiple characters, but only one character can perform the command, that character will be automatically selected. For example, if one character has a [Custom Trait](/guides/traits) called "Foo", then [rolling](/guides/rolls) Foo will automatically select that character, no matter how many other characters you have. If you have two characters with Foo, then only those two characters will appear in the character palette.
+</Aside>
+
+Some users (including the person typing this very sentence) don't like to click around on that menu, however, and it is for those people that the `character` option exists.
+
+(For some commands, such as `/character delete`, `character` *is* required. In those cases, there's no avoiding its use.)
