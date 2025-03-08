@@ -1,0 +1,89 @@
+---
+title: Privacy Policy
+---
+
+import { Aside, Card } from '@astrojs/starlight/components';
+
+<Aside>
+  For the purposes of this document, and for the sake of convenience, "Botch" refers to everything under the **Botch**, **Beat**, and [botch.lol](https://botch.lol) umbrella.
+</Aside>
+
+## The skinny
+
+**Botch** doesn't sell your data. **Botch** doesn't spam you. Whatever data it collects is used solely to facilitate its primary functionality and to troubleshoot any bugs or support issues that might arise. Data is encrypted at rest in the database. Due to the nature of Discord, it is not and cannot be end-to-end encrypted.
+
+## User data
+
+### Discord data
+
+* Discord user IDs (e.g. `229736753676681230`) are stored in **Botch**'s database for the purposes of character retrieval and statistical logging (rolls, command use, etc.)
+* Discord user locales are stored in command logs for statistical purposes.
+* Discord usernames (e.g. `@tiltowait`) are *not* stored in the database but *are* printed in some log statements. These logs are retained for 30 days.
+* Discord *display* names are not saved anywhere.
+
+### User-created data
+
+**Botch** obviously stores any data you put into your character, such as name, profile, Custom Traits, etc., as well as any [images you upload as a premium user](/guides/premium).
+
+## Server data
+
+Server names and IDs are stored in the database for the purposes of character retrieval and log entries. They are also printed in console logs, which are retained for 30 days.
+
+## Patreon data
+
+Your [Patreon](https://patreon.com/tiltowait) supporter status is reflected in custom roles on [The Second City](https://discord.gg/QHnCdSPeEE). Your tier, and thus the size of your subscription (read: $) are divinable by your custom roles on the server. **Botch** itself does not store this data.
+
+## Examples
+
+"Log data" is always frustratingly vague. In the interest of transparency, here are real some real examples pulled from the database, without redaction. Plus, I enjoy seeing the technical details underpinning the applications I use; maybe someone else will find this interesting.
+
+<Card title="Example command log entry">
+```js
+{
+  _id: ObjectId('670d54f9ba7c41bcc46892c0'),
+  command: 'roll',
+  date: ISODate('2024-10-14T17:29:29.377Z'),
+  guild: Long('935219170176532580'),
+  locale: 'en-US',
+  options: [
+    { value: 'stren+br', type: 3, name: 'pool' },
+    { value: 6, type: 4, name: 'difficulty' }
+  ],
+  type: 1,
+  user: Long('229736753676681230')
+}
+```
+The corresponding console log entry:
+```
+INFO     | COMMAND    | `/roll` invoked by @tiltowait (229736753676681230) in The Second City (935219170176532580). Options: pool="stren+br", difficulty=6
+```
+</Card>
+
+<Card title="Roll log entry">
+Roll logs are used for planned and current statistics commands (WoD players: try the `/botches` command!) as well as for debugging issues.
+
+```js
+{
+  _id: ObjectId('67cb94d583e118eca3492854'),
+  autos: 0,
+  botched: false,
+  character: DBRef('characters', ObjectId('67c9402283e118eca3492808')),
+  dice: [
+    9, 1, 8, 10,
+    9, 3, 7,  2
+  ],
+  guild: Long('935219170176532580'),
+  line: 'wod',
+  num_dice: 8,
+  num_successes: 6,
+  pool: [ 'Intelligence', '+', 'Occult (Grave Rituals)', '+', 'WP' ],
+  rote: false,
+  specialties: [ 'Grave Rituals' ],
+  syntax: 'intel+.grave+wp',
+  target: 6,
+  use_in_stats: true,
+  user: Long('229736753676681230'),
+  wp: true
+}
+```
+  </Card>
