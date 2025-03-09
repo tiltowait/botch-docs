@@ -10,6 +10,12 @@ import { Aside, LinkCard } from '@astrojs/starlight/components';
 import { Picture } from 'astro:assets';
 import BotAside from '@components/BotAside.astro';
 
+import imageUpload from '@assets/premium/image-upload.webp';
+import imageView from '@assets/premium/image-view.webp';
+import imageManage from '@assets/premium/image-manage.webp';
+
+export const imgWidth = 450;
+
 <BotAside />
 
 <LinkCard
@@ -31,10 +37,9 @@ As a supporter, you can upload images to [your characters](/guides/character-cre
 Select the image you want to upload by tapping the icon or dragging the file into the text box.
 
 <Picture
-  src="/src/assets/premium/image-upload.webp"
+  src={imageUpload}
   alt="Upload an image for your character"
-  width="450"
-  height="542"
+  width={imgWidth}
 />
 
 **Supported formats:**
@@ -52,10 +57,9 @@ Select the image you want to upload by tapping the icon or dragging the file int
 Click the buttons to page between images.
 
 <Picture
-  src="/src/assets/premium/image-view.webp"
+  src={imageView}
   alt="View your or other players' images with /character images"
-  width="450"
-  height="542"
+  width={imgWidth}
 />
 
 <Aside type="tip">
@@ -67,10 +71,9 @@ You can view other players' images with the optional `owner` parameter. Tired of
 When viewing your own images, you may click the *Manage* button to enter management mode. From here, you can promote/demote images to move them to the beginning/end of your list. To delete an image, click the *Delete* button.
 
 <Picture
-  src="/src/assets/premium/image-manage.webp"
+  src={imageManage}
   alt="Manage your images through /character images"
-  width="450"
-  height="542"
+  width={imgWidth}
 />
 
 ## Dropping premium
