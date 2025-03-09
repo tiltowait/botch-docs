@@ -12,6 +12,7 @@ export default defineConfig({
           plugins: [catppuccin()],
           title: 'botch.lol',
           lastUpdated: true,
+          favicon: '/favicon.png',
           social: {
               github: 'https://github.com/tiltowait/botch',
           },
