@@ -1,0 +1,72 @@
+---
+title: "Reference: Characters"
+description: Character command reference.
+slug: reference/characters
+---
+
+import { Aside, CardGrid, LinkButton, LinkCard, Tabs, TabItem } from '@astrojs/starlight/components';
+
+import RefBoilerplate from '@components/RefBoilerplate.astro';
+
+<RefBoilerplate command="character" />
+
+## About characters
+
+Though they are strictly optional, Characters are the core of **Botch** and **Beat**. By creating characters in the bot, you can track statistics, such as Health and Willpower, [Traits](/guides/traits), and [perform rolls using them](/guides/rolls).
+
+## Related guides
+
+<CardGrid>
+  <LinkCard title="Character Creation" href="/guides/character-creation" />
+  <LinkCard title="Character Management" href="/guides/character-management" />
+</CardGrid>
+
+### `/character adjust`
+
+Presents a menu from which you can adjust your character's core stats (Health, Willpower, etc.) as well as stats from their supernatural template, such as Generation, Sekhem, etc. The menu is composed of two separate bot messages:
+
+* A globally visible display showing the character's current stats.
+* A hidden menu for adjusting those stats. The menu has several sections you can select from.
+
+| Parameter      | Description                                                               |
+|----------------|---------------------------------------------------------------------------|
+| *character*    | The character to adjust.                                                  |
+
+### `/character display`
+
+Display one of your character's stats.
+
+| Parameter   | Description                                                    |
+|-------------|----------------------------------------------------------------|
+| *character* | The character to display.                                      |
+| *owner*     | The character's owner. [Administrators only.](/administration) |
+
+### `/character delete`
+
+Delete one of your characters. After selecting the character to delete, you will have to type their name again in a confirmation dialog.
+
+| Parameter     | Description                                                    |
+|---------------|----------------------------------------------------------------|
+| **character** | The character to delete.                                       |
+
+<Aside type="danger">This action is non-reversible!</Aside>
+
+### `/character images`
+
+Display your or another player's character's images. Unlike other commands where it's available, the `owner` property is usable by anyone. **When selecting another player's characters, fill the `owner` parameter first. Otherwise, Discord will cache your own characters, and the command won't work.**
+
+| Parameter   | Description                                                    |
+|-------------|----------------------------------------------------------------|
+| *character* | The character whose images to display.                         |
+| *owner*     | The character's owner.                                         |
+
+### `/character images upload`
+
+Upload an image to a character. Supported formats are JPEG, PNG, and WebP. These images are subject to [Discord's terms of service](https://discord.com/terms/) and **Botch's** [privacy policy](/privacy-policy).
+
+| Parameter   | Description                                                    |
+|-------------|----------------------------------------------------------------|
+| **image**   | The image file to upload. JPEG, PNG, WebP only.                |
+| *character* | The character receiving the image.                             |
+
+<Aside>This feature is only open to [Patreon supporters](/guides/premium).</Aside>
