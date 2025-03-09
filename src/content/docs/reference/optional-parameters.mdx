@@ -15,11 +15,19 @@ Many commands make use of optional parameters. These are parameters that don't a
 
 **Optional parameters hidden (default):**
 
-<Picture src={optionsHidden} alt="Optional parameters are hidden by default" />
+<Picture
+  src={optionsHidden}
+  alt="Optional parameters are hidden by default"
+  densities={[2,3]}
+/>
 
 **After tabbing or clicking "more":**
 
-<Picture src={optionsExpanded} alt="Tabbing or clicking 'more' shows optional parameters" />
+<Picture
+  src={optionsExpanded}
+  alt="Tabbing or clicking 'more' shows optional parameters"
+  densities={[2,3]}
+/>
 
 Optional parameters are simply that: optional. If you don't supply them, the default value will be used, which varies on an option-by-option basis.
 
@@ -27,7 +35,11 @@ Optional parameters are simply that: optional. If you don't supply them, the def
 
 Many commands have an optional `character` parameter. **It is still optional, even if you have more than one character!** If more than one character can execute a command, **Botch** and **Beat** will present a menu from which you can select the character to use. Simply click one, and you're off to the races.
 
-<Picture src={charSelect} alt="The character selector means you don't have to use the character option" />
+<Picture
+  src={charSelect}
+  alt="The character selector means you don't have to use the character option"
+  densities={[2,3]}
+/>
 
 <Aside type="tip">
   If you have multiple characters, but only one character can perform the command, that character will be automatically selected. For example, if one character has a [Custom Trait](/guides/traits) called "Foo", then [rolling](/guides/rolls) Foo will automatically select that character, no matter how many other characters you have. If you have two characters with Foo, then only those two characters will appear in the character palette.

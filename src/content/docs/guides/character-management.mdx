@@ -10,6 +10,8 @@ import imgDisplay from '@assets/manage/display.webp';
 import imgAdjust from '@assets/manage/adjust.webp';
 import imgDelete from '@assets/manage/delete.webp';
 
+export const imgWidth = 450;
+
 <BotAside />
 
 **Botch** and **Beat** offer several commands to view and manage your characters. This guide is for standard adjustments, such as HP, WP, and Path rating. [To adjust traits and specialties instead, click here.](/guides/traits)
@@ -22,7 +24,12 @@ import imgDelete from '@assets/manage/delete.webp';
 
 Display one of your characters. Includes name, Health, Willpower, Path + rating, and any special traits associated with your character's template (e.g. Generation for Vampires).
 
-<Picture src={imgDisplay} width="450" alt="/character display" />
+<Picture
+  src={imgDisplay}
+  width={imgWidth}
+  alt="/character display"
+  densities={[4]}
+/>
 
 ## Adjust
 
@@ -32,7 +39,12 @@ Display one of your characters. Includes name, Health, Willpower, Path + rating,
 
 This command displays your character as in `/character display` alongside a menu (visible only to you) to adjust various parameters. All characters can have their Health, Willpower, and Path rating adjusted. Additional options are available depending on template (e.g. Sekhem for Mummies).
 
-<Picture src={imgAdjust} width="450" alt="/character adjust" />
+<Picture
+  src={imgAdjust}
+  width={imgWidth}
+  alt="/character adjust"
+  densities={[4]}
+/>
 
 ## Delete
 
@@ -42,4 +54,9 @@ This command displays your character as in `/character display` alongside a menu
 
 Delete one of your characters. After selecting the character to delete, you must type the character name a second time to confirm. **Be careful: This action cannot be undone!**
 
-<Picture src={imgDelete} width="450" alt="/character delete" />
+<Picture
+  src={imgDelete}
+  width={imgWidth}
+  alt="/character delete"
+  densities={[4]}
+/>

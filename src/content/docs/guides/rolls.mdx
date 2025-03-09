@@ -33,14 +33,24 @@ The `/roll` command has a `pool` parameter where you enter your dice pool. This 
 
     This will roll the sum of your character's *Foo* and *Bar* Traits, at Difficulty 6. **Botch** counts the number of successes, subtracts 1s, and presents you with a total. At the bottom of the output, it shows you the Traits that went into the roll, making it easier for you, other players, and Storytellers to see what the roll was about. As a bonus, you don't need to look up your Traits! [Botch tracks it all for you.](/guides/traits)
 
-  <Picture src={botchRollBasic} width={imgWidth} alt="Botch: Basic roll" />
+  <Picture
+    src={botchRollBasic}
+    width={imgWidth}
+    alt="Botch: Basic roll"
+    densities={[4]}
+  />
   </TabItem>
   <TabItem label="Beat (CofD)">
     <Code code="/roll pool:Foo+Bar" mark={rollHighlights} />
 
     With this command, **Beat** will roll your *Foo* and *Bar* traits. Any 10s rolled will automatically explode.
 
-  <Picture src={beatRollBasic} width={imgWidth} alt="Beat: Basic roll" />
+  <Picture
+    src={beatRollBasic}
+    width={imgWidth}
+    alt="Beat: Basic roll"
+    densities={[4]}
+  />
 
   <Aside>
     Explosions are represented by a number enclosed in brackets. In the screenshot above, you can see we had two explosions.
@@ -59,13 +69,23 @@ The `/roll` command has a `pool` parameter where you enter your dice pool. This 
   <TabItem label="Botch (WoD)">
     Adding the special Trait, `WP`, adds Willpower to your roll, granting an un-cancelable success and deducting a point of temporary Willpower from your total.
 
-  <Picture src={botchRollWillpower} width={imgWidth} alt="Botch: Willpower roll" />
+  <Picture
+    src={botchRollWillpower}
+    width={imgWidth}
+    alt="Botch: Willpower roll"
+    densities={[4]}
+  />
     <Aside>**Botch** will *not* prevent you from using Willpower if you are empty. This is a design decision to accommodate games with certain house rules.</Aside>
   </TabItem>
   <TabItem label="Beat (CofD)">
     Adding the special Trait, `WP`, adds Willpower to your roll, granting three bonus dice and deducting a point of temporary Willpower from your total.
 
-  <Picture src={botchRollWillpower} width={imgWidth} alt="Beat: Willpower roll" />
+  <Picture
+    src={botchRollWillpower}
+    width={imgWidth}
+    alt="Beat: Willpower roll"
+    densities={[4]}
+  />
     <Aside>**Beat** will *not* prevent you from using Willpower if you are empty. This is a design decision to accommodate games with certain house rules.</Aside>
   </TabItem>
 </Tabs>
@@ -81,14 +101,24 @@ To invoke your Specialties, use dot-notation.
 
     As expected, this rolls *Strength*, with Specialty *Vicious*, plus *Brawl* at Difficulty 6. Any 10s rolled will count for double successes.
 
-  <Picture src={botchRollSpecs} width={imgWidth} alt="Botch: Roll with Specialties" />
+  <Picture
+    src={botchRollSpecs}
+    width={imgWidth}
+    alt="Botch: Roll with
+    densities={[4]}
+  Specialties" />
   </TabItem>
   <TabItem label="Beat (CofD)">
     <Code code="/roll pool:Dexterity+Brawl.Grappling" mark={rollHighlights} />
 
     In this example, we roll *Strength* plus *Brawl*, with a Specialty in *Grappling*. Because we added a Specialty, **Beat** rolls one bonus die.
 
-  <Picture src={beatRollSpecs} width={imgWidth} alt="Beat: Roll with Specialties" />
+  <Picture
+    src={beatRollSpecs}
+    width={imgWidth}
+    alt="Beat: Roll with
+    densities={[4]}
+  Specialties" />
   </TabItem>
 </Tabs>
 
@@ -108,7 +138,12 @@ Again, these are just examples! You aren't limited to these exact abbreviations.
 
 What does that mean? Say you write `str`. That can expand to two different Core Traits: Strength or Streetwise. You can't give `stre`, either, because it still matches either of those Traits. Thus, you have to either write (minimally) `stren` for Strength or `stree` for Streetwise.
 
-<Picture src={ambiguousTrait} width={imgWidth} alt="Ambiguous traits cannot be rolled" />
+<Picture
+  src={ambiguousTrait}
+  width={imgWidth}
+  alt="Ambiguous traits cannot
+  densities={[4]}
+be rolled" />
 
 <Aside>
   Shortcuts work with Custom Traits as well, which means that your own shortcuts might be different than the examples above. For instance, if you have a Custom Trait called "Barter", then a simple *b* will no longer auto-expand to Brawl.

@@ -19,6 +19,7 @@ export const highlights = [
   'Foo; Bar; Baz',
   'Foo=Spec,Another Spec; Bar=Yet Another Spec'
 ];
+export const imgWidth = 450;
 
 <BotAside />
 
@@ -32,7 +33,12 @@ export const highlights = [
 
 Use this command to assign one or more Traits to a character. It follows the pattern, `NAME=VALUE`. To assign more than one, separate them with semicolons (`;`). Trait names can contain spaces but not numbers.
 
-<Picture src={imgTraitAssign} width="450" alt="/traits assign" />
+<Picture
+  src={imgTraitAssign}
+  width={imgWidth}
+  alt="/traits assign"
+  densities={[4]}
+/>
 
 ### View
 
@@ -42,7 +48,12 @@ Use this command to assign one or more Traits to a character. It follows the pat
 
 View all of a character's Traits. If any [Specialties](#specialties) are assigned, they are displayed as well.
 
-<Picture src={imgTraitView} width="450" alt="/traits list" />
+<Picture
+  src={imgTraitView}
+  width={imgWidth}
+  alt="/traits list"
+  densities={[4]}
+/>
 
 ### Remove
 
@@ -50,7 +61,12 @@ View all of a character's Traits. If any [Specialties](#specialties) are assigne
 
 Delete one or more Traits from a character. As with [`/traits assign`](#assign), separate multiple Traits with semicolons (`;`).
 
-<Picture src={imgTraitRemove} width="450" alt="/traits remove" />
+<Picture
+  src={imgTraitRemove}
+  width={imgWidth}
+  alt="/traits remove"
+  densities={[4]}
+/>
 
 ## Specialties
 
@@ -62,7 +78,12 @@ Specialties are areas of expertise characters have in some of their [Traits](#tr
 
 Specialty assignment follows the form, `TRAIT=SPEC`. Specialty names can contain spaces, but not numbers. You may assign two or more Specialties at a time by separating them with commas (`,`). You may assign Specialties to multiple Traits by separating them with semicolons (`;`). Contrary to game rules as written, there are no limits to the number of specialties you can assign to a trait.
 
-<Picture src={imgSpecAssign} width="450" alt="/specialties assign" />
+<Picture
+  src={imgSpecAssign}
+  width={imgWidth}
+  alt="/specialties assign"
+  densities={[4]}
+/>
 
 ### View
 
@@ -74,4 +95,9 @@ See [`/traits list`](#view).
 
 Specialty removal follows the form, `TRAIT=SPEC`. As with [`/specialties assign`](#assign-1), you may remove two or more Specialties at once by separating them with commas (`,`). You may remove Specialties from multiple Traits by separating them with semicolons (`;`).
 
-<Picture src={imgSpecRemove} width="450" alt="/specialties remove" />
+<Picture
+  src={imgSpecRemove}
+  width={imgWidth}
+  alt="/specialties remove"
+  densities={[4]}
+/>
