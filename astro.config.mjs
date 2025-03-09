@@ -35,6 +35,7 @@ export default defineConfig({
                   autogenerate: { directory: 'reference' },
               },
               { label: 'Administration', slug: 'administration' },
+              { label: 'Preferences', slug: 'preferences' },
               { label: 'Privacy Policy', slug: 'privacy-policy' },
           ],
       }),

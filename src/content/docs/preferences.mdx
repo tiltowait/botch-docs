@@ -1,0 +1,39 @@
+---
+title: Preferences
+description: Bot preferences reference.
+---
+
+import { Picture } from 'astro:assets';
+import BotAside from '@components/BotAside.astro';
+
+import preferencesImg from '@assets/preferences.png';
+export const imgWidth = 450;
+
+<BotAside />
+
+**Botch** and **Beat** support both user-specific and server-wide preferences that alter bot behavior. Access these preferences through the `/preferences` command. The menu shows the current preferences. For instance, if it says *Use Emojis (Self)*, that means the bot will show emojis. If it says *Don't Use Emojis (Self)*, then it will not show emojis. Click the buttons to toggle between options.
+
+<Picture
+  src={preferencesImg}
+  alt="The preferences menu shows the current preferences."
+  width={imgWidth}
+  densities={[4]}
+/>
+
+At present, the only adjustable preference is the emoji setting. More settings may arrive in the future.
+
+## User preferences
+
+These preferences are adjustable by any user; however, they may be overridden by server settings.
+
+| Setting             | Description                                                         |
+|---------------------|---------------------------------------------------------------------|
+| `Use Emojis (Self)` | Whether to use emojis or raw text in command output. Default: `ON`. |
+
+## Server preferences
+
+These are availabe to server administrators only and will override user preferences if changed from the default.
+
+| Setting               | Description                                                         |
+|-----------------------|---------------------------------------------------------------------|
+| `Use Emojis (Server)` | Whether to use emojis or raw text in command output. Default: `ON`. |
