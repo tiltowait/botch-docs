@@ -11,6 +11,9 @@ export default defineConfig({
       starlight({
           plugins: [catppuccin()],
           title: 'botch.lol',
+          logo: {
+              src: './src/assets/botch-logo.webp',
+          },
           lastUpdated: true,
           favicon: '/favicon.png',
           social: {
