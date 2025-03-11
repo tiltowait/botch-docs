@@ -19,6 +19,7 @@ export default defineConfig({
           favicon: '/favicon.png',
           social: {
               github: 'https://github.com/tiltowait/botch',
+              discord: 'https://discord.gg/QHnCdSPeEE',
           },
           sidebar: [
               {
