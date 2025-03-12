@@ -1,5 +1,6 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
+import svelte from '@astrojs/svelte';
 import starlight from '@astrojs/starlight';
 import catppuccin from 'starlight-theme-catppuccin';
 
@@ -8,6 +9,15 @@ import node from '@astrojs/node';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://botch.lol',
+  // vite: {
+  //    css: {
+  //       preprocessorOptions: {
+  //          scss: {
+  //            additionalData: `@import "./src/styles/bootstrap-custom.scss";`
+  //          }
+  //       }
+  //    }
+  // },
   integrations: [
       starlight({
           plugins: [catppuccin()],
@@ -44,6 +54,7 @@ export default defineConfig({
               { label: 'Privacy Policy', slug: 'privacy-policy' },
           ],
       }),
+      svelte(),
 	],
 
   adapter: node({
