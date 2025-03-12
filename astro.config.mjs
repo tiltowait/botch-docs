@@ -30,6 +30,7 @@ export default defineConfig({
           social: {
               github: 'https://github.com/tiltowait/botch',
               discord: 'https://discord.gg/QHnCdSPeEE',
+              patreon: 'https://patreon.com/tiltowait',
           },
           sidebar: [
               {
