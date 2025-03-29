@@ -1,0 +1,29 @@
+---
+title: "Reference: Virtues"
+description: Virtues command reference.
+slug: reference/virtues
+---
+
+import { Aside } from '@astrojs/starlight/components';
+
+<Aside>As Virtues are found in *World of Darkness*, not *Chronicles of Darkness*, this section applies to **Beat** only. Required parameters are in **bold**; [optional parameters](/reference/optional-parameters) are in *italics*.</Aside>
+
+Virtues are similar to Traits, with the following differences:
+
+* You must have exactly three of them
+* You must always have Courage
+* You must choose between Conscience/Conviction and SelfControl/Instinct.
+
+### `/virtues set`
+
+Though they appear when using [`/traits list`](/reference/traits/#traits-list), Virtues can only be set/updated with `/virtues set`.
+
+  | Parameter       | Description                  |
+  |-----------------|------------------------------|
+  | **virtue**      | The Virtue to set or update. |
+  | **rating**      | The rating to give it.       |
+  | *character*     | The character to adjust.     |
+
+  When choosing a `virtue` the character doesn't possess, the matching Virtue will be replaced. In other words, selecting "Conviction" for a character currently possessing Conscience will replace one with the other. The same is true for SelfControl and Instinct. There is no reciprocal for Courage.
+
+  ***Note:** Due to engine limitations, "Self-Control" is "SelfControl".*
