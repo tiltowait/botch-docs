@@ -53,6 +53,7 @@ export default defineConfig({
               { label: 'Administration', slug: 'administration' },
               { label: 'Preferences', slug: 'preferences' },
               { label: 'Privacy Policy', slug: 'privacy-policy' },
+              { label: 'Terms of Service', slug: 'terms-of-service' },
           ],
       }),
       svelte(),
