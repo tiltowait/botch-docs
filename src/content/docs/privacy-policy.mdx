@@ -17,13 +17,14 @@ import { Aside, Card } from '@astrojs/starlight/components';
 ### Discord data
 
 * Discord user IDs (e.g. `229736753676681230`) are stored in **Botch**'s database for the purposes of character retrieval and statistical logging (rolls, command use, etc.)
+* Discord user IDs are stored as metadata with any [images uploaded by premium users](/guides/premium).
 * Discord user locales are stored in command logs for statistical purposes.
 * Discord usernames (e.g. `@tiltowait`) are *not* stored in the database but *are* printed in some log statements. These logs are retained for 30 days.
 * Discord *display* names are not saved anywhere.
 
 ### User-created data
 
-**Botch** obviously stores any data you put into your character, such as name, profile, Custom Traits, etc., as well as any [images you upload as a premium user](/guides/premium).
+**Botch** obviously stores any data you put into your character, such as name, profile, Custom Traits, etc., as well as any [uploaded images](/guides/premium).
 
 ## Server data
 
