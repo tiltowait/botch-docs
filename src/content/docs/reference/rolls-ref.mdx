@@ -47,6 +47,7 @@ The most important command, this is what you will use 90% of the time you invoke
   | *use_wp*    | Whether to use Willpower in the roll. You can add `+WP` to your pool instead. |
   | *again*     | The target number for explosions. Allowed: 8-10. Default: 10.                 |
   | *rote*      | Apply the Rote quality (re-roll failures once).                               |
+  | *advanced*  | Apply the *Blessed* or *Blighted* quality.                                    |
   | *specialty* | A Specialty to apply to the roll. See below for more details.                 |
   | *autos*     | Add automatic successes to the roll.                                          |
   | *comment*   | Text to appear alongside the roll. Typically used to describe an action.      |
@@ -71,6 +72,18 @@ To roll with Traits, simply type their names in the `pool`, e.g. "Strength+Brawl
 <Aside type="tip">
   You don't have to type full Trait names! [Read about Shortcuts here.](/guides/rolls#shortcuts)
 </Aside>
+
+#### The dice readout
+
+The `Dice` section of the response indicates how many dice were rolled. For WoD games, this will simply be the number given or the total of your Trait syntax. For CofD, it is more complex. The readout will be the base number of dice, plus 1 if there's a Specialty, plus the number of explosions (if any), plus "WP" if Willpower is used.
+
+**Example:**
+
+```
+  7 + 2X + WP
+```
+
+In the example above, seven base dice were rolled. There were two explosions, and three dice were added for Willpower.
 
 ### `/chance` (CofD only)
 
